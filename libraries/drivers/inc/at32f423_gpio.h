@@ -551,8 +551,6 @@ typedef struct
 #define GPIOD                            ((gpio_type *) GPIOD_BASE)
 #define GPIOE                            ((gpio_type *) GPIOE_BASE)
 #define GPIOF                            ((gpio_type *) GPIOF_BASE)
-#define GPIOG                            ((gpio_type *) GPIOG_BASE)
-#define GPIOH                            ((gpio_type *) GPIOH_BASE)
 
 /** @defgroup GPIO_exported_functions
   * @{

@@ -292,10 +292,9 @@ void usart_receiver_enable(usart_type* usart_x, confirm_state new_state)
 
 /**
   * @brief  usart clock config.
-  * @note   clock config are not available for USART4, USART5, USART7 and USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4 ,USART5, USART6, USART7 or USART8.
   * @param  clk_pol: polarity of the clock output on the ck pin.
   *         this parameter can be one of the following values:
   *         - USART_CLOCK_POLARITY_LOW
@@ -319,10 +318,9 @@ void usart_clock_config(usart_type* usart_x, usart_clock_polarity_type clk_pol, 
 
 /**
   * @brief  usart enable the ck pin.
-  * @note   clock enable are not available for USART4, USART5, USART7 and USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4 ,USART5, USART6, USART7 or USART8.
   * @param  new_state: TRUE or FALSE
   * @retval none
   */
@@ -507,10 +505,9 @@ void usart_break_send(usart_type* usart_x)
 
 /**
   * @brief  config the specified usart smartcard guard time.
-  * @note   The guard time bits are not available for USART4, USART5, USART7 or USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  guard_time_val: specifies the guard time (0x00~0xFF).
   * @retval none
   */
@@ -521,10 +518,9 @@ void usart_smartcard_guard_time_set(usart_type* usart_x, uint8_t guard_time_val)
 
 /**
   * @brief  config the irda/smartcard division.
-  * @note   the division are not available for USART4, USART5, USART7 or USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  div_val: specifies the division.
   * @retval none
   */
@@ -535,10 +531,9 @@ void usart_irda_smartcard_division_set(usart_type* usart_x, uint8_t div_val)
 
 /**
   * @brief  enable or disable the usart smart card mode.
-  * @note   the smart card mode are not available for USART4, USART5, USART7 or USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  new_state: new state of the smart card mode.
   *         this parameter can be: TRUE or FALSE.
   * @retval none
@@ -550,10 +545,9 @@ void usart_smartcard_mode_enable(usart_type* usart_x, confirm_state new_state)
 
 /**
   * @brief  enable or disable nack transmission in smartcard mode.
-  * @note   the smart card nack are not available for USART4, USART5, USART7 or USART8.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3 or USART6.
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  new_state: new state of the nack transmission.
   *         this parameter can be: TRUE or FALSE.
   * @retval none
@@ -609,7 +603,7 @@ void usart_irda_low_power_enable(usart_type* usart_x, confirm_state new_state)
   * @brief  configure the usart's hardware flow control.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  flow_state: specifies the hardware flow control.
   *         this parameter can be one of the following values:
   *         - USART_HARDWARE_FLOW_NONE
@@ -737,7 +731,7 @@ void usart_flag_clear(usart_type* usart_x, uint32_t flag)
   * @brief  configure the usart's rs485 transmit delay time.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3
+  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
   * @param  start_delay_time: transmit start delay time.
   * @param  complete_delay_time: transmit complete delay time.
   * @retval none

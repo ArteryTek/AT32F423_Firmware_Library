@@ -34,11 +34,11 @@ extern "C" {
 #include "at32f423.h"
 #include "at32f423_board.h"
 
-/** @addtogroup AT32F423_periph_examples
+/** @addtogroup UTILITIES_examples
   * @{
   */
 
-/** @addtogroup 423_USB_device_hid_app_led3
+/** @addtogroup USB_iap_app_led3_toggle
   * @{
   */
 

@@ -32,11 +32,11 @@ extern "C" {
 
 #include "hid_iap_class.h"
 
-/** @addtogroup AT32F423_periph_examples
+/** @addtogroup UTILITIES_examples
   * @{
   */
 
-/** @addtogroup 423_USB_device_hid_iap
+/** @addtogroup USB_iap_bootloader
   * @{
   */
 

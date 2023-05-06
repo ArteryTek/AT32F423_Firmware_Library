@@ -37,11 +37,11 @@ extern uint8_t iap_flag;
   * @{
   */
 
-/** @addtogroup IAP_app_led3_toggle
+/** @addtogroup USART_iap_app_led3_toggle
   * @{
   */
 
-/** @defgroup IAP_app_led3_flag_definition
+/** @defgroup app_led3_toggle_flag_definition
   * @{
   */
 
@@ -54,7 +54,7 @@ extern uint8_t iap_flag;
   * @}
   */
 
-/** @defgroup IAP_app_led3_exported_functions
+/** @defgroup app_led3_toggle_exported_functions
   * @{
   */
 

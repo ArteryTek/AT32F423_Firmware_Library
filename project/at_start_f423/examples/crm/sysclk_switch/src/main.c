@@ -87,8 +87,8 @@ static void switch_system_clock(void)
 /**
   * @brief  config sclk 64 mhz with hick clock source.
   * @note   the system clock is configured as follow:
-  *         - system clock        = (hick * pll_ns)/(pll_ms * pll_fr) / 2
-  *         - system clock source = pll (hick)
+  *         system clock (sclk)   = (hick * pll_ns)/(pll_ms * pll_fr) / 2
+  *         system clock source   = pll (hick)
   *         - hext                = 8000000
   *         - sclk                = 64000000
   *         - ahbdiv              = 1
@@ -168,8 +168,8 @@ static void sclk_64m_hick_config(void)
 /**
   * @brief  config sclk 96 mhz with hext clock source.
   * @note   the system clock is configured as follow:
-  *         - system clock        = (hext * pll_ns)/(pll_ms * pll_fr) / 2
-  *         - system clock source = pll (hext)
+  *         system clock (sclk)   = (hext * pll_ns)/(pll_ms * pll_fr) / 2
+  *         system clock source   = pll (hext)
   *         - hext                = 8000000
   *         - sclk                = 96000000
   *         - ahbdiv              = 1

@@ -73,6 +73,9 @@ extern "C" {
     #define AT32F423xx
 #endif
 
+/**
+  * define with package
+  */
 #if defined (AT32F423K8U7_4) || defined (AT32F423KBU7_4) || defined (AT32F423KCU7_4)
 
     #define AT32F423Kx
@@ -100,6 +103,30 @@ extern "C" {
     #define AT32F423Vx
 #endif
 
+/**
+  * define with memory density
+  */
+#if defined (AT32F423K8U7_4) || defined (AT32F423T8U7)   || defined (AT32F423C8U7)   || \
+    defined (AT32F423C8T7)   || defined (AT32F423R8T7_7) || defined (AT32F423R8T7)   || \
+    defined (AT32F423V8T7)
+
+    #define AT32F423x8
+#endif
+
+#if defined (AT32F423KBU7_4) || defined (AT32F423TBU7)   || defined (AT32F423CBU7)   || \
+    defined (AT32F423CBT7)   || defined (AT32F423RBT7_7) || defined (AT32F423RBT7)   || \
+    defined (AT32F423VBT7)
+
+    #define AT32F423xB
+#endif
+
+#if defined (AT32F423KCU7_4) || defined (AT32F423TCU7)   || defined (AT32F423CCU7)   || \
+    defined (AT32F423CCT7)   || defined (AT32F423RCT7_7) || defined (AT32F423RCT7)   || \
+    defined (AT32F423VCT7)
+
+    #define AT32F423xC
+#endif
+
 #ifndef USE_STDPERIPH_DRIVER
 /**
   * @brief comment the line below if you will not use the peripherals drivers.
@@ -119,7 +146,7 @@ extern "C" {
   */
 #define __AT32F423_LIBRARY_VERSION_MAJOR    (0x02) /*!< [31:24] major version */
 #define __AT32F423_LIBRARY_VERSION_MIDDLE   (0x00) /*!< [23:16] middle version */
-#define __AT32F423_LIBRARY_VERSION_MINOR    (0x00) /*!< [15:8]  minor version */
+#define __AT32F423_LIBRARY_VERSION_MINOR    (0x01) /*!< [15:8]  minor version */
 #define __AT32F423_LIBRARY_VERSION_RC       (0x00) /*!< [7:0]  release candidate */
 #define __AT32F423_LIBRARY_VERSION          ((__AT32F423_LIBRARY_VERSION_MAJOR << 24)  | \
                                              (__AT32F423_LIBRARY_VERSION_MIDDLE << 16) | \
@@ -334,7 +361,7 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
 #define SRAM_BB_BASE                     ((uint32_t)0x22000000)
 #define PERIPH_BB_BASE                   ((uint32_t)0x42000000)
 #define SRAM_BASE                        ((uint32_t)0x20000000)
-#define USD_BASE                         ((uint32_t)0x1FFFC000)
+#define USD_BASE                         ((uint32_t)0x1FFFF800)
 #define FLASH_BASE                       ((uint32_t)0x08000000)
 
 #define DEBUG_BASE                       ((uint32_t)0xE0042000)

@@ -30,7 +30,7 @@
   * @{
   */
 
-/** @addtogroup USB_IAP_bootloader
+/** @addtogroup USB_iap_bootloader
   * @{
   */
 

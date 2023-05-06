@@ -35,7 +35,7 @@ extern "C" {
   * @{
   */
 
-/** @addtogroup bootloader
+/** @addtogroup USART_iap_bootloader
   * @{
   */
 
@@ -43,7 +43,6 @@ extern "C" {
   * @{
   */
 
-#define SECTOR_SIZE_INDEX                (((*(uint32_t*)0xE0042000) >> 12) & 0x07)
 #define FLASH_SIZE                       (*(uint32_t*)0x1FFFF7E0)  /* read from at32 flash capacity register(unit:kbyte) */
 #define SRAM_SIZE                        48                         /* sram size, unit:kbyte */
 

@@ -32,14 +32,13 @@ extern "C" {
 
 #include "hid_iap_class.h"
 
-/** @addtogroup AT32F423_periph_examples
+/** @addtogroup UTILITIES_examples
   * @{
   */
 
-/** @addtogroup 423_USB_device_hid_app_led3
+/** @addtogroup USB_iap_app_led3_toggle
   * @{
   */
-
 
 #define FLASH_APP_ADDRESS                0x08006000
 

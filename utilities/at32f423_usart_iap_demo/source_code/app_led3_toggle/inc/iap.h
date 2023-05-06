@@ -35,11 +35,11 @@ extern "C" {
   * @{
   */
 
-/** @addtogroup IAP_app_led3_toggle
+/** @addtogroup USART_iap_app_led3_toggle
   * @{
   */
 
-/** @defgroup IAP_app_led3_address_definition
+/** @defgroup app_led3_toggle_address_definition
   * @{
   */
 
@@ -53,7 +53,7 @@ extern "C" {
   * @}
   */
 
-/** @defgroup IAP_app_led3_flag_definition
+/** @defgroup app_led3_toggle_flag_definition
   * @{
   */
 
@@ -65,7 +65,7 @@ indicates that an app upgrade will follow, see iap application note for more det
   * @}
   */
 
-/** @defgroup IAP_app_led3_exported_functions
+/** @defgroup app_led3_toggle_exported_functions
   * @{
   */
 
