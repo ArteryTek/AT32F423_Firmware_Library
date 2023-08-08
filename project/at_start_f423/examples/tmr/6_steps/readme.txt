@@ -7,7 +7,7 @@
 
   this demo is based on the at-start board, in this demo, shows how to configure
   the tmr1 peripheral to generate 6 steps. a software com event is generated
-  each 100 ms: using the systick interrupt. the break polarity is used at high level.
+  each 100 ms: using the systick interrupt. the brake polarity is used at high level.
   the following table describes the tmr1 channels states:
               -----------------------------------------------
              | step1 | step2 | step3 | step4 | step5 | step6 |

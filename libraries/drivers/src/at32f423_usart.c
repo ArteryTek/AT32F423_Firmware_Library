@@ -84,8 +84,7 @@ void usart_reset(usart_type* usart_x)
     crm_periph_reset(CRM_USART7_PERIPH_RESET, TRUE);
     crm_periph_reset(CRM_USART7_PERIPH_RESET, FALSE);
   }
-#if defined (AT32F423Kx) || defined (AT32F423Tx) || defined (AT32F423Cx) || \
-    defined (AT32F423Rx) || defined (AT32F423Vx)
+#if defined (AT32F423Rx) || defined (AT32F423Vx)
   else if(usart_x == USART8)
   {
     crm_periph_reset(CRM_USART8_PERIPH_RESET, TRUE);
@@ -105,6 +104,9 @@ void usart_reset(usart_type* usart_x)
   *         - USART_DATA_7BITS
   *         - USART_DATA_8BITS
   *         - USART_DATA_9BITS.
+  *         note:
+  *         - when parity check is disabled, the data bit width is the actual data bit number.
+  *         - when parity check is enabled, the data bit width is the actual data bit number minus 1, and the MSB bit is replaced with the parity bit.
   * @param  stop_bit: stop bits transmitted
   *         this parameter can be one of the following values:
   *         - USART_STOP_1_BIT

@@ -89,7 +89,7 @@ static void switch_system_clock(void)
   * @note   the system clock is configured as follow:
   *         system clock (sclk)   = (hick * pll_ns)/(pll_ms * pll_fr) / 2
   *         system clock source   = pll (hick)
-  *         - hext                = 8000000
+  *         - hick                = HICK_VALUE
   *         - sclk                = 64000000
   *         - ahbdiv              = 1
   *         - ahbclk              = 64000000
@@ -170,7 +170,7 @@ static void sclk_64m_hick_config(void)
   * @note   the system clock is configured as follow:
   *         system clock (sclk)   = (hext * pll_ns)/(pll_ms * pll_fr) / 2
   *         system clock source   = pll (hext)
-  *         - hext                = 8000000
+  *         - hext                = HEXT_VALUE
   *         - sclk                = 96000000
   *         - ahbdiv              = 1
   *         - ahbclk              = 96000000

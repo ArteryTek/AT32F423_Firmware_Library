@@ -286,8 +286,7 @@ uint32_t tmr_counter_value_get(tmr_type *tmr_x)
   *         this parameter can be one of the following values:
   *         TMR1, TMR2, TMR3, TMR4, TMR6, TMR7,
   *         TMR9, TMR10, TMR11, TMR12, TMR13, TMR14
-  * @param  tmr_div_value (for 16 bit tmr 0x0000~0xFFFF,
-  *                        for 32 bit tmr 0x0000_0000~0xFFFF_FFFF)
+  * @param  tmr_div_value (0x0000~0xFFFF)
   * @retval none
   */
 void tmr_div_value_set(tmr_type *tmr_x, uint32_t tmr_div_value)
@@ -1776,7 +1775,7 @@ void tmr_dma_control_config(tmr_type *tmr_x, tmr_dma_transfer_length_type dma_le
 }
 
 /**
-  * @brief  config tmr break mode and dead-time
+  * @brief  config tmr brake mode and dead-time
   * @param  tmr_x: select the tmr peripheral.
   *         this parameter can be one of the following values:
   *         TMR1, TMR9, TMR10, TMR11, TMR12, TMR13, TMR14

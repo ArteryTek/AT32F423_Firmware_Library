@@ -418,8 +418,7 @@ typedef struct
 #define USART5                           ((usart_type *) USART5_BASE)
 #define USART6                           ((usart_type *) USART6_BASE)
 #define USART7                           ((usart_type *) USART7_BASE)
-#if defined (AT32F423Kx) || defined (AT32F423Tx) || defined (AT32F423Cx) || \
-    defined (AT32F423Rx) || defined (AT32F423Vx)
+#if defined (AT32F423Rx) || defined (AT32F423Vx)
 #define USART8                           ((usart_type *) USART8_BASE)
 #endif
 

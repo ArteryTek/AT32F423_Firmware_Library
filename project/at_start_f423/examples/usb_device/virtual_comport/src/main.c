@@ -267,25 +267,7 @@ void usb_usart_config( linecoding_type linecoding)
     default :
       break;
   }
-  /* data bits */
-  switch(linecoding.data)
-  {
-    /* hardware usart not support data bits for 5/6 */
-    case 0x5:
-    case 0x6:
-      break;
-    case 0x7:
-      usart_data_bit = USART_DATA_7BITS;
-      break;
-    case 0x8:
-      usart_data_bit = USART_DATA_8BITS;
-      break;
-    /* hardware usart not support data bits for 16 */
-    case 0x10:
-      break;
-    default :
-      break;
-  }
+  
   /* parity */
   switch(linecoding.parity)
   {
@@ -304,6 +286,51 @@ void usb_usart_config( linecoding_type linecoding)
       break;
     default :
       break;
+  }
+  
+  if(USART_PARITY_NONE == usart_parity_select)
+  {
+    /* data bits */
+    switch(linecoding.data)
+    {
+      /* hardware usart not support data bits for 5/6 */
+      case 0x5:
+      case 0x6:
+        break;
+      case 0x7:
+        usart_data_bit = USART_DATA_7BITS;
+        break;
+      case 0x8:
+        usart_data_bit = USART_DATA_8BITS;
+        break;
+      /* hardware usart not support data bits for 16 */
+      case 0x10:
+        break;
+      default :
+        break;
+    }    
+  }
+  else
+  {
+    /* data bits */
+    switch(linecoding.data)
+    {
+      /* hardware usart not support data bits for 5/6 */
+      case 0x5:
+      case 0x6:
+        break;
+      case 0x7:
+        usart_data_bit = USART_DATA_8BITS;
+        break;
+      case 0x8:
+        usart_data_bit = USART_DATA_9BITS;
+        break;
+      /* hardware usart not support data bits for 16 */
+      case 0x10:
+        break;
+      default :
+        break;
+    }    
   }
 
   nvic_irq_enable(USART2_IRQn, 0, 0);

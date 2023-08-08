@@ -282,17 +282,9 @@ void CAN1_RX0_IRQHandler(void)
   */
 void CAN1_SE_IRQHandler(void)
 {
-  __IO uint32_t err_index = 0;
   if(can_flag_get(CAN1,CAN_ETR_FLAG) != RESET)
   {
-    err_index = CAN1->ests & 0x70;
     can_flag_clear(CAN1, CAN_ETR_FLAG);
-    /* error type is stuff error */
-    if(err_index == 0x00000010)
-    {
-      /* when stuff error occur: in order to ensure communication normally,
-      user must restart can or send a frame of highest priority message here */
-    }
   }
 }
 

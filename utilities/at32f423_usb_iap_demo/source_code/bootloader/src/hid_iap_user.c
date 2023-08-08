@@ -312,7 +312,7 @@ iap_result_type iap_data_write(uint8_t *pdata, uint32_t len)
   }
   else
   {
-    iap_respond(iap_info.iap_tx, IAP_CMD_ADDR, IAP_NACK);
+    iap_respond(iap_info.iap_tx, IAP_CMD_DATA, IAP_NACK);
   }
   return IAP_SUCCESS;
 }

@@ -277,7 +277,7 @@ typedef struct
 
 void scfg_reset(void);
 void scfg_infrared_config(scfg_ir_source_type source, scfg_ir_polarity_type polarity);
-uint8_t scfg_mem_map_get(void);
+scfg_mem_map_type scfg_mem_map_get(void);
 void scfg_i2s_full_duplex_config(scfg_i2s_type i2s_full_duplex);
 void scfg_pvm_lock_enable(confirm_state new_state);
 void scfg_lockup_enable(confirm_state new_state);

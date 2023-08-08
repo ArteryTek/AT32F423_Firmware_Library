@@ -77,9 +77,13 @@ void scfg_infrared_config(scfg_ir_source_type source, scfg_ir_polarity_type pola
   *         - SCFG_MEM_MAP_BOOT_MEMORY
   *         - SCFG_MEM_MAP_INTERNAL_SRAM
   */
-uint8_t scfg_mem_map_get(void)
+scfg_mem_map_type scfg_mem_map_get(void)
 {
-  return (uint8_t)SCFG->cfg1_bit.mem_map_sel;
+  if(SCFG->cfg1_bit.mem_map_sel & 0x1)
+  {
+    return (scfg_mem_map_type)SCFG->cfg1_bit.mem_map_sel;
+  }
+  return SCFG_MEM_MAP_MAIN_MEMORY;
 }
 
 /**

@@ -92,7 +92,7 @@ void clock_failure_detection_handler(void)
   * @note   the system clock is configured as follow:
   *         system clock (sclk)   = (hick * pll_ns)/(pll_ms * pll_fr) / 2
   *         system clock source   = pll (hick)
-  *         - hext                = 8000000
+  *         - hext                = HEXT_VALUE
   *         - sclk                = 144000000
   *         - ahbdiv              = 1
   *         - ahbclk              = 144000000
@@ -113,6 +113,9 @@ static void sclk_144m_hick_config(void)
 
   /* config flash psr register */
   flash_psr_set(FLASH_WAIT_CYCLE_4);
+
+  /* enable pwc periph clock */
+  crm_periph_clock_enable(CRM_PWC_PERIPH_CLOCK, TRUE);
 
   /* ensure system clock to highest, set power ldo output voltage to 1.3v */
   pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);
