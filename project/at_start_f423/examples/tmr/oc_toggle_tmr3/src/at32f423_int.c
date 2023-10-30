@@ -143,7 +143,7 @@ void SysTick_Handler(void)
   */
 void TMR3_GLOBAL_IRQHandler(void)
 {
-  /* TMR3_CH1 toggling with frequency = 183.1 Hz */
+  /* TMR3_CH1 toggling with frequency = 366.2 Hz */
   if (tmr_flag_get(TMR3, TMR_C1_FLAG) != RESET)
   {
     tmr_flag_clear(TMR3, TMR_C1_FLAG );
@@ -151,7 +151,7 @@ void TMR3_GLOBAL_IRQHandler(void)
     tmr_channel_value_set(TMR3, TMR_SELECT_CHANNEL_1, capture + ccr1_val);
   }
 
-  /* TMR3_CH2 toggling with frequency = 366.2 Hz */
+  /* TMR3_CH2 toggling with frequency = 732.4 Hz */
   if (tmr_flag_get(TMR3, TMR_C2_FLAG) != RESET)
   {
     tmr_flag_clear(TMR3, TMR_C2_FLAG);
@@ -159,7 +159,7 @@ void TMR3_GLOBAL_IRQHandler(void)
     tmr_channel_value_set(TMR3, TMR_SELECT_CHANNEL_2, capture + ccr2_val);
   }
 
-  /* TMR3_CH3 toggling with frequency = 732.4 Hz */
+  /* TMR3_CH3 toggling with frequency = 1464.8 Hz */
   if (tmr_flag_get(TMR3, TMR_C3_FLAG) != RESET)
   {
     tmr_flag_clear(TMR3, TMR_C3_FLAG);
@@ -167,7 +167,7 @@ void TMR3_GLOBAL_IRQHandler(void)
     tmr_channel_value_set(TMR3, TMR_SELECT_CHANNEL_3, capture + ccr3_val);
   }
 
-  /* TMR3_CH4 toggling with frequency = 1464.8 Hz */
+  /* TMR3_CH4 toggling with frequency = 2929.6 Hz */
   if (tmr_flag_get(TMR3, TMR_C4_FLAG) != RESET)
   {
     tmr_flag_clear(TMR3, TMR_C4_FLAG);

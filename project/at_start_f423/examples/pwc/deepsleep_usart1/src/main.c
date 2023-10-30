@@ -165,6 +165,11 @@ int main(void)
   __IO uint32_t index = 0;
   __IO uint32_t systick_index = 0;
 
+  /* add a necessary delay to ensure that Vdd is higher than the operating
+     voltage of battery powered domain (2.57V) when the battery powered 
+     domain is powered on for the first time and being operated. */
+  wait_for_power_stable();
+
   /* enable pwc clock */
   crm_periph_clock_enable(CRM_PWC_PERIPH_CLOCK, TRUE);
 
@@ -181,11 +186,6 @@ int main(void)
   at32_led_on(LED2);
   at32_led_on(LED3);
   at32_led_on(LED4);
-
-  /* add a necessary delay to ensure that Vdd is higher than the operating
-     voltage of battery powered domain (2.57V) when the battery powered 
-     domain is powered on for the first time and being operated. */
-  delay_ms(60);
   
   /* config usart or other operations of battery powered domain */
   usart1_config(2400);

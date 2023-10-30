@@ -55,6 +55,11 @@ int main(void)
   ertc_time_type time;
   uint32_t temp = 0;
 
+  /* add a necessary delay to ensure that Vdd is higher than the operating
+     voltage of battery powered domain (2.57V) when the battery powered 
+     domain is powered on for the first time and being operated. */
+  wait_for_power_stable();
+
   /* initial system clock */
   system_clock_config();
 
@@ -72,11 +77,6 @@ int main(void)
 
   /* allow access to ertc */
   pwc_battery_powered_domain_access(TRUE);
-
-  /* add a necessary delay to ensure that Vdd is higher than the operating
-     voltage of battery powered domain (2.57V) when the battery powered 
-     domain is powered on for the first time and being operated. */
-  delay_ms(60);
 
   if (ertc_bpr_data_read(ERTC_DT1) != 0x1234)
   {

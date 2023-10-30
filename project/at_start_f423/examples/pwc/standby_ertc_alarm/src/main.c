@@ -124,6 +124,11 @@ int main(void)
 {
   __IO uint32_t index = 0;
 
+  /* add a necessary delay to ensure that Vdd is higher than the operating
+     voltage of battery powered domain (2.57V) when the battery powered 
+     domain is powered on for the first time and being operated. */
+  wait_for_power_stable();
+
   /* congfig the system clock */
   system_clock_config();
 
@@ -148,12 +153,7 @@ int main(void)
   
   /* delay to check led state */
   delay_sec(1);
-  
-  /* add a necessary delay to ensure that Vdd is higher than the operating
-     voltage of battery powered domain (2.57V) when the battery powered 
-     domain is powered on for the first time and being operated. */
-  delay_ms(60);
-  
+
   /* config ertc or other operations of battery powered domain */
   ertc_config();
   at32_led_on(LED4);

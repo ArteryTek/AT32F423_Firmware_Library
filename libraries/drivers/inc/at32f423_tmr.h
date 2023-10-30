@@ -432,6 +432,7 @@ typedef struct
   */
 typedef struct
 {
+  uint8_t                                brk_filter_value;    /*!< tmr brake filter value */
   uint8_t                                deadtime;            /*!< dead-time generator setup */
   tmr_brk_polarity_type                  brk_polarity;        /*!< tmr brake polarity */
   tmr_wp_level_type                      wp_level;            /*!< write protect configuration */
@@ -804,7 +805,8 @@ typedef struct
       __IO uint32_t brkv                 : 1; /* [13] */
       __IO uint32_t aoen                 : 1; /* [14] */
       __IO uint32_t oen                  : 1; /* [15] */
-      __IO uint32_t reserved1            : 16; /* [31:16] */
+      __IO uint32_t bkf                  : 4; /* [19:16] */
+      __IO uint32_t reserved1            : 12;/* [31:20] */
     } brk_bit;
   };
   /**
@@ -957,6 +959,7 @@ void tmr_trigger_input_select(tmr_type *tmr_x, sub_tmr_input_sel_type trigger_se
 void tmr_sub_sync_mode_set(tmr_type *tmr_x, confirm_state new_state);
 void tmr_dma_request_enable(tmr_type *tmr_x, tmr_dma_request_type dma_request, confirm_state new_state);
 void tmr_interrupt_enable(tmr_type *tmr_x, uint32_t tmr_interrupt, confirm_state new_state);
+flag_status tmr_interrupt_flag_get(tmr_type *tmr_x, uint32_t tmr_flag);
 flag_status tmr_flag_get(tmr_type *tmr_x, uint32_t tmr_flag);
 void tmr_flag_clear(tmr_type *tmr_x, uint32_t tmr_flag);
 void tmr_event_sw_trigger(tmr_type *tmr_x, tmr_event_trigger_type tmr_event);

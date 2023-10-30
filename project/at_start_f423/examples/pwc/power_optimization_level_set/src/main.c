@@ -141,6 +141,11 @@ int main(void)
   __IO uint32_t systick_index = 0;
   __IO uint32_t delay_index = 0;
 
+  /* add a necessary delay to ensure that Vdd is higher than the operating
+     voltage of battery powered domain (2.57V) when the battery powered 
+     domain is powered on for the first time and being operated. */
+  wait_for_power_stable();
+
   /* congfig the system clock */
   system_clock_config();
 
@@ -161,11 +166,6 @@ int main(void)
   /* congfig the voltage regulator mode.only used with deep sleep mode */
   pwc_voltage_regulate_set(PWC_REGULATOR_EXTRA_LOW_POWER);
 
-  /* add a necessary delay to ensure that Vdd is higher than the operating
-     voltage of battery powered domain (2.57V) when the battery powered 
-     domain is powered on for the first time and being operated. */
-  delay_ms(60);
-  
   /* config ertc or other operations of battery powered domain */
   ertc_config();
 

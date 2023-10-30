@@ -19,4 +19,4 @@
     1. scl --- pb6
     2. sda --- pb7
 
-  for more detailed information. please refer to the application note document AN0100.
+  for more detailed information. please refer to the application note document AN0163.

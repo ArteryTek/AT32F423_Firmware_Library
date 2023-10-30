@@ -57,6 +57,11 @@ int main(void)
   uint32_t temp = 0;
   ertc_time_type time;
 
+  /* add a necessary delay to ensure that Vdd is higher than the operating
+     voltage of battery powered domain (2.57V) when the battery powered 
+     domain is powered on for the first time and being operated. */
+  wait_for_power_stable();
+
   /* initial system clock */
   system_clock_config();
 
@@ -73,11 +78,6 @@ int main(void)
 
   /* allow access to bpr domain */
   pwc_battery_powered_domain_access(TRUE);
-
-  /* add a necessary delay to ensure that Vdd is higher than the operating
-     voltage of battery powered domain (2.57V) when the battery powered 
-     domain is powered on for the first time and being operated. */
-  delay_ms(60);
 
   /* check data from bpr dt register */
   if(bpr_reg_check() == FALSE)
