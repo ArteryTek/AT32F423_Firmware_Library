@@ -130,7 +130,7 @@ static void adc_config(void)
   adc_ordinary_channel_set(ADC1, ADC_CHANNEL_6, 3, ADC_SAMPLETIME_47_5);
 
   /* config ordinary trigger source and trigger edge */
-  adc_ordinary_conversion_trigger_set(ADC1, ADC_ORDINARY_TRIG_TMR1CH1, ADC_ORDINARY_TRIG_EDGE_NONE);
+  adc_ordinary_conversion_trigger_set(ADC1, ADC_ORDINARY_TRIG_SOFTWARE, ADC_ORDINARY_TRIG_EDGE_NONE);
 
   /* config dma mode,it's not useful when common dma mode is use */
   adc_dma_mode_enable(ADC1, TRUE);

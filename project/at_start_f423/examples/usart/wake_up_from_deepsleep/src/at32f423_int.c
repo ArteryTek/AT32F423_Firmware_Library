@@ -141,7 +141,7 @@ void USART1_IRQHandler(void)
 {
   if(USART1->ctrl3_bit.lpwufie)
   {
-    if(usart_flag_get(USART1, USART_LPWUF_FLAG) == SET)
+    if(usart_interrupt_flag_get(USART1, USART_LPWUF_FLAG) == SET)
     {
       /* clear lpwuf flag and disable the uart wake up from deep sleep mode interrupt */
       usart_flag_clear(USART1, USART_LPWUF_FLAG);
@@ -150,14 +150,14 @@ void USART1_IRQHandler(void)
       usart_interrupt_enable(USART1, USART_RDBF_INT, TRUE);
     }
   }
-  if(exint_flag_get(EXINT_LINE_25) == SET)
+  if(exint_interrupt_flag_get(EXINT_LINE_25) == SET)
   {
     exint_flag_clear(EXINT_LINE_25);
   }
   
   if(USART1->ctrl1_bit.rdbfien)
   {
-    if(usart_flag_get(USART1, USART_RDBF_FLAG) == SET)
+    if(usart_interrupt_flag_get(USART1, USART_RDBF_FLAG) == SET)
     {
       usart1_rx_buffer[usart1_rx_counter++] = usart_data_receive(USART1);
     }

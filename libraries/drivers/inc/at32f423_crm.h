@@ -384,7 +384,7 @@ typedef enum
   CRM_USB_DIV_7                          = 0x04, /*!< pllclk div7 to usbclk */
   CRM_USB_DIV_6                          = 0x05, /*!< pllclk div6 to usbclk */
   CRM_USB_DIV_9                          = 0x06, /*!< pllclk div9 to usbclk */
-  CRM_USB_DIV_8                          = 0x07, /*!< pllclk div8 to usbclk */
+  CRM_USB_DIV_8                          = 0x07  /*!< pllclk div8 to usbclk */
 } crm_usb_div_type;
 
 /**

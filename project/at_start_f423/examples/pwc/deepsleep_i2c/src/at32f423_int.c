@@ -143,7 +143,7 @@ void SysTick_Handler(void)
   */
 void I2C1_EVT_IRQHandler(void)
 {
-  if(exint_flag_get(EXINT_LINE_23) != RESET)
+  if(exint_interrupt_flag_get(EXINT_LINE_23) != RESET)
   {
     exint_flag_clear(EXINT_LINE_23);
   }

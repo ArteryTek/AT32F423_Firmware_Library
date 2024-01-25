@@ -137,7 +137,7 @@ void OTG_IRQ_HANDLER(void)
   */
 void ACC_IRQHandler(void)
 {
-  if(acc_flag_get(ACC_CALRDY_FLAG) != RESET)
+  if(acc_interrupt_flag_get(ACC_CALRDY_FLAG) != RESET)
   {
     at32_led_on(LED2);
     at32_led_off(LED3);
@@ -292,7 +292,7 @@ void usb_clock48m_select(usb_clk48_s clk_s)
       case 120000000:
         crm_usb_clock_div_set(CRM_USB_DIV_5);
         break;
-      
+
       /* 144MHz */
       case 144000000:
         crm_usb_clock_div_set(CRM_USB_DIV_6);
