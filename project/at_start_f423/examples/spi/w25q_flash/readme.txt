@@ -9,9 +9,10 @@
   shows how to use spi access the w25q flash chip.
   the pins connection as follow:
   - spi2                     w25qxx
-    pd0(cs)        <--->     cs pin
-    pd1(sck)       <--->     clk pin
-    pc2(miso)      <--->     di pin
-    pd4(mosi)      <--->     do pin
+    pb12(cs)        <--->     cs pin
+    pb13(sck)       <--->     clk pin
+    pb14(miso)      <--->     di pin
+    pb15(mosi)      <--->     do pin
 
-  for more detailed information. please refer to the application note document AN0102.
+  for more detailed information. please refer to the application note document AN0102.
+

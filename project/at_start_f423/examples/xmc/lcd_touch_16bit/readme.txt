@@ -18,9 +18,9 @@
   - spi2_mosi pd4     --->   spi_mosi
   - gpio      pb11    --->   t_pen
   - gpio      pb12    --->   t_cs
-  
+  - gpio      pd3     --->   lcd_reset
   - gpio      pb8     --->   lcd_bl
-  - xmc_a0   pc3      --->   lcd_rs
+  - xmc_a0    pc3     --->   lcd_rs
   - xmc_ne1   pd7     --->   lcd_cs
   - xmc_nwe   pd2     --->   lcd_wr
   - xmc_noe   pb10    --->   lcd_rd

@@ -45,35 +45,34 @@ void spiflash_init(void)
   gpio_init_type gpio_initstructure;
   spi_init_type spi_init_struct;
 
-  crm_periph_clock_enable(CRM_GPIOC_PERIPH_CLOCK, TRUE);
-  crm_periph_clock_enable(CRM_GPIOD_PERIPH_CLOCK, TRUE);
+  crm_periph_clock_enable(CRM_GPIOB_PERIPH_CLOCK, TRUE);
   crm_periph_clock_enable(CRM_DMA1_PERIPH_CLOCK, TRUE);
   /* software cs, pd0 as a general io to control flash cs */
   gpio_initstructure.gpio_out_type       = GPIO_OUTPUT_PUSH_PULL;
   gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
   gpio_initstructure.gpio_mode           = GPIO_MODE_OUTPUT;
   gpio_initstructure.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
-  gpio_initstructure.gpio_pins           = GPIO_PINS_0;
-  gpio_init(GPIOD, &gpio_initstructure);
+  gpio_initstructure.gpio_pins           = GPIO_PINS_12;
+  gpio_init(GPIOB, &gpio_initstructure);
 
   /* sck */
   gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
   gpio_initstructure.gpio_mode           = GPIO_MODE_MUX;
-  gpio_initstructure.gpio_pins           = GPIO_PINS_1;
-  gpio_init(GPIOD, &gpio_initstructure);
-  gpio_pin_mux_config(GPIOD, GPIO_PINS_SOURCE1, GPIO_MUX_6);
+  gpio_initstructure.gpio_pins           = GPIO_PINS_13;
+  gpio_init(GPIOB, &gpio_initstructure);
+  gpio_pin_mux_config(GPIOB, GPIO_PINS_SOURCE13, GPIO_MUX_5);
 
   /* miso */
   gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_pins           = GPIO_PINS_2;
-  gpio_init(GPIOC, &gpio_initstructure);
-  gpio_pin_mux_config(GPIOC, GPIO_PINS_SOURCE2, GPIO_MUX_5);
+  gpio_initstructure.gpio_pins           = GPIO_PINS_14;
+  gpio_init(GPIOB, &gpio_initstructure);
+  gpio_pin_mux_config(GPIOB, GPIO_PINS_SOURCE14, GPIO_MUX_5);
 
   /* mosi */
   gpio_initstructure.gpio_pull           = GPIO_PULL_UP;
-  gpio_initstructure.gpio_pins           = GPIO_PINS_4;
-  gpio_init(GPIOD, &gpio_initstructure);
-  gpio_pin_mux_config(GPIOD, GPIO_PINS_SOURCE4, GPIO_MUX_6);
+  gpio_initstructure.gpio_pins           = GPIO_PINS_15;
+  gpio_init(GPIOB, &gpio_initstructure);
+  gpio_pin_mux_config(GPIOB, GPIO_PINS_SOURCE15, GPIO_MUX_5);
 
   FLASH_CS_HIGH();
   crm_periph_clock_enable(CRM_SPI2_PERIPH_CLOCK, TRUE);

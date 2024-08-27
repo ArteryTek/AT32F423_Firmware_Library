@@ -37,8 +37,8 @@ lcd_dev_type lcd_dev_struct =
   0,
   xmc_init,       /*!< function for xmc and gpios init */
   lcd_init,       /*!< function for configures the lcd */
-  lcd_setblock,   /*!< lcd function to set block or set window */
-  lcd_drawpoint,  /*!< lcd function to drawpoint */
+  lcd_set_block,   /*!< lcd function to set block or set window */
+  lcd_draw_point,  /*!< lcd function to drawpoint */
   lcd_clear,      /*!< lcd function to clear */
 };
 
@@ -126,6 +126,13 @@ void xmc_init(void)
   gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
   gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
   gpio_init(GPIOD, &gpio_init_struct);
+	
+	gpio_init_struct.gpio_pins = GPIO_PINS_3;
+  gpio_init_struct.gpio_mode = GPIO_MODE_OUTPUT;
+  gpio_init_struct.gpio_out_type = GPIO_OUTPUT_PUSH_PULL;
+  gpio_init_struct.gpio_pull = GPIO_PULL_NONE;
+  gpio_init_struct.gpio_drive_strength = GPIO_DRIVE_STRENGTH_STRONGER;
+  gpio_init(GPIOD, &gpio_init_struct);
 
   gpio_init_struct.gpio_pins = GPIO_PINS_10;
   gpio_init_struct.gpio_mode = GPIO_MODE_MUX;
@@ -164,9 +171,9 @@ void xmc_init(void)
   xmc_norsram_timing_default_para_init(&rw_timing_struct, &w_timing_struct);
   rw_timing_struct.subbank = XMC_BANK1_NOR_SRAM1;
   rw_timing_struct.write_timing_enable = XMC_WRITE_TIMING_ENABLE;
-  rw_timing_struct.addr_setup_time = 0x2;
+  rw_timing_struct.addr_setup_time = 0xf;
   rw_timing_struct.addr_hold_time = 0x0;
-  rw_timing_struct.data_setup_time = 0x2;
+  rw_timing_struct.data_setup_time = 0xf;
   rw_timing_struct.bus_latency_time = 0x0;
   rw_timing_struct.clk_psc = 0x0;
   rw_timing_struct.data_latency_time = 0x0;
@@ -201,6 +208,8 @@ void lcd_init(void)
   /* init xmc */
   lcd_struct->xmc_init();
 
+	LCD_RESET_HIGH;
+	
   delay_ms(50);
 
   /* read id */
@@ -361,7 +370,7 @@ uint16_t lcd_rd_data(void)
   * @param  yend : column coordinates ending vaule.
   * @retval none
   */
-void lcd_setblock(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend)
+void lcd_set_block(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend)
 {
   /* set row coordinates */
   lcd_wr_command(0x2a);
@@ -386,7 +395,7 @@ void lcd_setblock(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend
   * @param  data : the data to write.
   * @retval none
   */
-void lcd_writeonepoint(uint16_t color)
+void lcd_write_one_point(uint16_t color)
 {
   lcd_wr_data(color);
 }
@@ -396,11 +405,11 @@ void lcd_writeonepoint(uint16_t color)
   * @param  data : the data to write.
   * @retval None
   */
-void lcd_drawpoint(uint16_t x, uint16_t y, uint16_t color)
+void lcd_draw_point(uint16_t x, uint16_t y, uint16_t color)
 {
-  lcd_struct->lcd_setblock(x, y ,x ,y);
+  lcd_struct->lcd_set_block(x, y ,x ,y);
 
-  lcd_writeonepoint(color);
+  lcd_write_one_point(color);
 }
 
 /**
@@ -412,11 +421,11 @@ void lcd_clear(uint16_t color)
 {
   uint32_t i;
 
-  lcd_struct->lcd_setblock(0, 0, 240, 320);
+  lcd_struct->lcd_set_block(0, 0, 240, 320);
 
   for(i = 0; i < 76800; i++)
   {
-    lcd_writeonepoint(color);
+    lcd_write_one_point(color);
   }
 }
 

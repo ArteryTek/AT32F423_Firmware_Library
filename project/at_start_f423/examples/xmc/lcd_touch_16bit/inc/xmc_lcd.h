@@ -43,7 +43,7 @@ typedef struct
   uint16_t lcd_id;                                                                        /*!< lcd device id define */
   void (*xmc_init)(void);                                                                 /*!< function for xmc and gpios init */
   void (*lcd_init)(void);                                                                 /*!< function for configures the lcd */
-  void (*lcd_setblock)(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend);   /*!< lcd function to set block or set window */
+  void (*lcd_set_block)(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend);   /*!< lcd function to set block or set window */
   void (*draw_point)(uint16_t x, uint16_t y, uint16_t color);                             /*!< lcd function to drawpoint */
   void (*lcd_clear)(uint16_t color);                                                      /*!< lcd function to clear */
 } lcd_dev_type;
@@ -69,7 +69,9 @@ extern lcd_dev_type *lcd_struct;
 /** @defgroup LCD_reset_line
   * @{
   */
-
+/* the lcd reset line */
+#define LCD_RESET_HIGH                   gpio_bits_set(GPIOD,GPIO_PINS_3)
+#define LCD_RESET_LOW                    gpio_bits_reset(GPIOD,GPIO_PINS_3)
 /**
   * @}
   */
@@ -101,9 +103,9 @@ void lcd_init(void);
 void lcd_wr_command(uint16_t command);
 void lcd_wr_data(uint16_t data);
 uint16_t lcd_rd_data(void);
-void lcd_setblock(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend);
-void lcd_writeonepoint(uint16_t color);
-void lcd_drawpoint(uint16_t x, uint16_t y, uint16_t color);
+void lcd_set_block(uint16_t xstart, uint16_t ystart, uint16_t xend, uint16_t yend);
+void lcd_write_one_point(uint16_t color);
+void lcd_draw_point(uint16_t x, uint16_t y, uint16_t color);
 void lcd_clear(uint16_t color);
 
 /**

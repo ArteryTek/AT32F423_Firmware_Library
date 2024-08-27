@@ -121,7 +121,7 @@ void usart1_wakeup_config(void)
   /* config the exint line of the usart1 */
   exint_init_struct.line_select   = EXINT_LINE_25;
   exint_init_struct.line_enable   = TRUE;
-  exint_init_struct.line_mode     = EXINT_LINE_INTERRUPUT;
+  exint_init_struct.line_mode     = EXINT_LINE_INTERRUPT;
   exint_init_struct.line_polarity = EXINT_TRIGGER_RISING_EDGE;
   exint_init(&exint_init_struct);
 }
@@ -173,9 +173,6 @@ int main(void)
   /* enable pwc clock */
   crm_periph_clock_enable(CRM_PWC_PERIPH_CLOCK, TRUE);
 
-  /* congfig the voltage regulator mode.only used with deep sleep mode */
-  pwc_voltage_regulate_set(PWC_REGULATOR_EXTRA_LOW_POWER);
-
   /* congfig the system clock */
   system_clock_config();
 
@@ -216,6 +213,9 @@ int main(void)
     while(usart_flag_get(USART1, USART_TDC_FLAG) == RESET)
     {
     }
+	
+	/* congfig the voltage regulator mode.only used with deep sleep mode */
+    pwc_voltage_regulate_set(PWC_REGULATOR_EXTRA_LOW_POWER);
 
     /* enter deep sleep mode */
     pwc_deep_sleep_mode_enter(PWC_DEEP_SLEEP_ENTER_WFI);

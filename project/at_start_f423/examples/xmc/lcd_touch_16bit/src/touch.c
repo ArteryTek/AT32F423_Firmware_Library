@@ -253,11 +253,11 @@ void touch_scan(void)
     x = (240 * touch_dev_struct.x_p[1]) / (0xed0);
     y = (320 * touch_dev_struct.y_p[1]) / (0xe60);
 
-    lcd_drawpoint(x, y, RED);
-    lcd_drawpoint(x - 1, y, RED);
-    lcd_drawpoint(x + 1, y, RED);
-    lcd_drawpoint(x, y + 1, RED);
-    lcd_drawpoint(x, y - 1, RED);
+    lcd_draw_point(x, y, RED);
+    lcd_draw_point(x - 1, y, RED);
+    lcd_draw_point(x + 1, y, RED);
+    lcd_draw_point(x, y + 1, RED);
+    lcd_draw_point(x, y - 1, RED);
   }
 }
 
