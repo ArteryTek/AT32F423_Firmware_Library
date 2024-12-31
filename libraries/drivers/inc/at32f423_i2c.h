@@ -461,7 +461,7 @@ flag_status i2c_interrupt_flag_get(i2c_type *i2c_x, uint32_t flag);
 void i2c_flag_clear(i2c_type *i2c_x, uint32_t flag);
 void i2c_wakeup_enable(i2c_type *i2c_x, confirm_state new_state);
 void i2c_analog_filter_enable(i2c_type *i2c_x, confirm_state new_state);
-  
+
 /**
   * @}
   */

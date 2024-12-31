@@ -236,8 +236,12 @@ int main(void)
     /* enter deep sleep mode */
     pwc_deep_sleep_mode_enter(PWC_DEEP_SLEEP_ENTER_WFI);
     
-    /* wait clock stable */
-    delay_us(120);
+    /* determine if the debugging function is enabled */
+    if((DEBUGMCU->ctrl & 0x00000007) != 0x00000000)
+    {
+      /* wait 3 LICK cycles to ensure clock stable */
+      delay_us(7);
+    }
 
     /* resume ldo before system clock source enhance */
     pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);
@@ -273,8 +277,12 @@ int main(void)
     /* enter deep sleep mode */
     pwc_deep_sleep_mode_enter(PWC_DEEP_SLEEP_ENTER_WFI);
     
-    /* wait clock stable */
-    delay_us(120);
+    /* determine if the debugging function is enabled */
+    if((DEBUGMCU->ctrl & 0x00000007) != 0x00000000)
+    {
+      /* wait 3 LICK cycles to ensure clock stable */
+      delay_us(7);
+    }
 
     /* resume ldo before system clock source enhance */
     pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);

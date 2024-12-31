@@ -186,7 +186,7 @@ error_status ertc_init_mode_enter(void)
 void ertc_init_mode_exit(void)
 {
   ERTC->sts = 0xFFFFFF7F;
-  
+
   /* wait register update finish */
   ertc_wait_update();
 }
@@ -328,6 +328,11 @@ error_status ertc_date_set(uint8_t year, uint8_t month, uint8_t date, uint8_t we
   /* exit init mode */
   ertc_init_mode_exit();
 
+  if(ERTC->ctrl_bit.dren == 0)
+  {
+    ertc_wait_update();
+  }
+
   /* enable write protection */
   ertc_write_protect_enable();
 
@@ -370,6 +375,11 @@ error_status ertc_time_set(uint8_t hour, uint8_t min, uint8_t sec, ertc_am_pm_ty
 
   /* exit init mode */
   ertc_init_mode_exit();
+
+  if(ERTC->ctrl_bit.dren == 0)
+  {
+    ertc_wait_update();
+  }
 
   /* enable write protection */
   ertc_write_protect_enable();
@@ -1417,7 +1427,7 @@ flag_status ertc_flag_get(uint32_t flag)
 flag_status ertc_interrupt_flag_get(uint32_t flag)
 {
   __IO uint32_t iten = 0;
-  
+
   switch(flag)
   {
     case ERTC_ALAF_FLAG:
@@ -1436,7 +1446,7 @@ flag_status ertc_interrupt_flag_get(uint32_t flag)
     case ERTC_TP2F_FLAG:
       iten = ERTC->tamp_bit.tpien;
       break;
-    
+
     default:
       break;
   }
