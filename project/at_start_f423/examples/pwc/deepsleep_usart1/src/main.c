@@ -162,7 +162,7 @@ void system_clock_recover(void)
   */
 int main(void)
 {
-  __IO uint32_t index = 0;
+  crm_clocks_freq_type crm_clocks_freq_struct = {0};
   __IO uint32_t systick_index = 0;
 
   /* add a necessary delay to ensure that Vdd is higher than the operating
@@ -175,6 +175,9 @@ int main(void)
 
   /* congfig the system clock */
   system_clock_config();
+  
+  /* get system clock */
+  crm_clocks_freq_get(&crm_clocks_freq_struct);
 
   /* init at start board */
   at32_board_init();
@@ -208,7 +211,7 @@ int main(void)
     }
 
     /* reduce ldo before enter deepsleep mode */
-    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V0);
+    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V1);
 
     while(usart_flag_get(USART1, USART_TDC_FLAG) == RESET)
     {
@@ -226,8 +229,18 @@ int main(void)
     /* determine if the debugging function is enabled */
     if((DEBUGMCU->ctrl & 0x00000007) != 0x00000000)
     {
-      /* wait 3 LICK cycles to ensure clock stable */
-      delay_us(7);
+      /* wait 3 LICK(maximum 120us) cycles to ensure clock stable */
+      /* when wakeup from deepsleep,system clock source changes to HICK */
+      if((CRM->misc1_bit.hick_to_sclk == TRUE) && (CRM->misc1_bit.hickdiv == TRUE))
+      {
+        /* HICK is 48MHz */
+        delay_us(((120 * 6 * HICK_VALUE) /crm_clocks_freq_struct.sclk_freq) + 1);
+      }
+      else
+      {
+        /* HICK is 8MHz */
+        delay_us(((120 * HICK_VALUE) /crm_clocks_freq_struct.sclk_freq) + 1);
+      }
     }
 
     /* resume ldo before system clock source enhance */

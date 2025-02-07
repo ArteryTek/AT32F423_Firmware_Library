@@ -20,5 +20,6 @@
   - pa5(ck)  <--->  NC
   - pa6(mck) <--->  NC
   - pa7(sd)  <--->  pb14(ext_sd)
+  and then choose "I2S_MASTER_BOARD" to check communication result.
 
   for more detailed information. please refer to the application note document AN0102.
