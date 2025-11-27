@@ -3,7 +3,8 @@
   * @file     at32f423_adc.h
   * @brief    at32f423 adc header file
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -405,8 +406,7 @@ typedef struct
       __IO uint32_t cspt15               : 3; /* [17:15] */
       __IO uint32_t cspt16               : 3; /* [20:18] */
       __IO uint32_t cspt17               : 3; /* [23:21] */
-      __IO uint32_t cspt18               : 3; /* [26:24] */
-      __IO uint32_t reserved1            : 5;/* [31:27] */
+      __IO uint32_t reserved1            : 8; /* [31:24] */
     } spt1_bit;
   };
 
@@ -773,25 +773,7 @@ typedef struct
   */
 typedef struct
 {
-
-  /**
-    * @brief adc csts register, offset:0x00
-    */
-  union
-  {
-    __IO uint32_t csts;
-    struct
-    {
-      __IO uint32_t vmor1                : 1; /* [0] */
-      __IO uint32_t occe1                : 1; /* [1] */
-      __IO uint32_t pcce1                : 1; /* [2] */
-      __IO uint32_t pccs1                : 1; /* [3] */
-      __IO uint32_t occs1                : 1; /* [4] */
-      __IO uint32_t occo1                : 1; /* [5] */
-      __IO uint32_t rdy1                 : 1; /* [6] */
-      __IO uint32_t reserved1            : 25; /* [31:7] */
-    } csts_bit;
-  };
+  __IO uint32_t reserved1;
 
   /**
     * @brief adc cctrl register, offset:0x04
@@ -801,7 +783,7 @@ typedef struct
     __IO uint32_t cctrl;
     struct
     {
-      __IO uint32_t reserved1            : 16; /* [15:0] */
+      __IO uint32_t reserved1            : 16;/* [15:0] */
       __IO uint32_t adcdiv               : 4; /* [19:16] */
       __IO uint32_t reserved2            : 3; /* [22:20] */
       __IO uint32_t itsrven              : 1; /* [23] */

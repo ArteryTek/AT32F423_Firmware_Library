@@ -3,7 +3,8 @@
   * @file     at32f423_crm.h
   * @brief    at32f423 crm header file
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -257,14 +258,10 @@ typedef enum
   CRM_USART8_PERIPH_LOWPOWER             = MAKE_VALUE(0x60, 31), /*!< usart8 sleep mode periph clock */
   /* apb2 periph */
   CRM_TMR1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 0),  /*!< tmr1 sleep mode periph clock */
-  CRM_TMR8_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 1),  /*!< tmr8 sleep mode periph clock */
   CRM_USART1_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 4),  /*!< usart1 sleep mode periph clock */
   CRM_USART6_PERIPH_LOWPOWER             = MAKE_VALUE(0x64, 5),  /*!< usart6 sleep mode periph clock */
-  CRM_ADC1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 8),  /*!< adc1 sleep mode periph clock */
-  CRM_ADC2_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 9),  /*!< adc2 sleep mode periph clock */
-  CRM_ADC3_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 10), /*!< adc3 sleep mode periph clock */
+  CRM_ADC_PERIPH_LOWPOWER                = MAKE_VALUE(0x64, 8),  /*!< adc sleep mode periph clock */
   CRM_SPI1_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 12), /*!< spi1 sleep mode periph clock */
-  CRM_SPI4_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 13), /*!< spi4 sleep mode periph clock */
   CRM_SCFG_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 14), /*!< scfg sleep mode periph clock */
   CRM_TMR9_PERIPH_LOWPOWER               = MAKE_VALUE(0x64, 16), /*!< tmr9 sleep mode periph clock */
   CRM_TMR10_PERIPH_LOWPOWER              = MAKE_VALUE(0x64, 17), /*!< tmr10 sleep mode periph clock */
@@ -747,7 +744,7 @@ typedef struct
       __IO uint32_t tmr7rst              : 1; /* [5] */
       __IO uint32_t tmr12rst             : 1; /* [6] */
       __IO uint32_t tmr13rst             : 1; /* [7] */
-      __IO uint32_t adc14rst             : 1; /* [8] */
+      __IO uint32_t tmr14rst             : 1; /* [8] */
       __IO uint32_t reserved2            : 2; /* [10:9] */
       __IO uint32_t wwdtrst              : 1; /* [11] */
       __IO uint32_t reserved3            : 2; /* [13:12] */
@@ -877,7 +874,7 @@ typedef struct
       __IO uint32_t tmr7en               : 1; /* [5] */
       __IO uint32_t tmr12en              : 1; /* [6] */
       __IO uint32_t tmr13en              : 1; /* [7] */
-      __IO uint32_t adc14en              : 1; /* [8] */
+      __IO uint32_t tmr14en              : 1; /* [8] */
       __IO uint32_t reserved2            : 2; /* [10:9] */
       __IO uint32_t wwdten               : 1; /* [11] */
       __IO uint32_t reserved3            : 2; /* [13:12] */

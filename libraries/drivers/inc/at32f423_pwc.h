@@ -1,9 +1,10 @@
 /**
   **************************************************************************
   * @file     at32f423_pwc.h
-  * @brief    at32f423 pwr header file
+  * @brief    at32f423 pwc header file
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.

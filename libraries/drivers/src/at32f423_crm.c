@@ -3,7 +3,8 @@
   * @file     at32f423_crm.c
   * @brief    contains all the functions for the crm firmware library
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -111,7 +112,7 @@ void crm_hext_bypass(confirm_state new_state)
   *         - CRM_PLL_STABLE_FLAG
   *         - CRM_LEXT_STABLE_FLAG
   *         - CRM_LICK_STABLE_FLAG
-  *         - CRM_PIN_RESET_FLAG
+  *         - CRM_NRST_RESET_FLAG
   *         - CRM_POR_RESET_FLAG
   *         - CRM_SW_RESET_FLAG
   *         - CRM_WDT_RESET_FLAG
@@ -331,7 +332,7 @@ void crm_periph_reset(crm_periph_reset_type value, confirm_state new_state)
   *         - CRM_USART4_PERIPH_LOWPOWER    - CRM_USART5_PERIPH_LOWPOWER    - CRM_I2C1_PERIPH_LOWPOWER     - CRM_I2C2_PERIPH_LOWPOWER
   *         - CRM_I2C3_PERIPH_LOWPOWER      - CRM_CAN1_PERIPH_LOWPOWER      - CRM_CAN2_PERIPH_LOWPOWER     - CRM_PWC_PERIPH_LOWPOWER
   *         - CRM_DAC_PERIPH_LOWPOWER       - CRM_USART7_PERIPH_LOWPOWER    - CRM_USART8_PERIPH_LOWPOWER   - CRM_TMR1_PERIPH_LOWPOWER
-  *         - CRM_USART1_PERIPH_LOWPOWER    - CRM_USART6_PERIPH_LOWPOWER    - CRM_ADC1_PERIPH_LOWPOWER     - CRM_SPI1_PERIPH_LOWPOWER
+  *         - CRM_USART1_PERIPH_LOWPOWER    - CRM_USART6_PERIPH_LOWPOWER    - CRM_ADC_PERIPH_LOWPOWER      - CRM_SPI1_PERIPH_LOWPOWER
   *         - CRM_SCFG_PERIPH_LOWPOWER      - CRM_TMR9_PERIPH_LOWPOWER      - CRM_TMR10_PERIPH_LOWPOWER    - CRM_TMR11_PERIPH_LOWPOWER
   *         - CRM_ACC_PERIPH_LOWPOWER       - CRM_FLASH_PERIPH_LOWPOWER     - CRM_SRAM_PERIPH_LOWPOWER
   * @param  new_state (TRUE or FALSE)
@@ -391,7 +392,7 @@ void crm_clock_source_enable(crm_clock_source_type source, confirm_state new_sta
   * @param  flag
   *         this parameter can be one of the following values:
   *         reset flag:
-  *         - CRM_PIN_RESET_FLAG
+  *         - CRM_NRST_RESET_FLAG
   *         - CRM_POR_RESET_FLAG
   *         - CRM_SW_RESET_FLAG
   *         - CRM_WDT_RESET_FLAG
@@ -959,7 +960,7 @@ void crm_clocks_freq_get(crm_clocks_freq_type *clocks_struct)
       pll_ms = CRM->pllcfg_bit.pllms;
       pll_fr = pll_fr_table[CRM->pllcfg_bit.pllfr];
 
-      if (pll_clock_source == CRM_PLL_SOURCE_HICK)
+      if(pll_clock_source == CRM_PLL_SOURCE_HICK)
       {
         /* hick selected as pll clock entry */
         pllrcsfreq = HICK_VALUE;

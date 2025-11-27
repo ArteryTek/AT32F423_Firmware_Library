@@ -3,7 +3,8 @@
   * @file     at32f423_usart.c
   * @brief    contains all the functions for the usart firmware library
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -660,19 +661,19 @@ void usart_hardware_flow_control_set(usart_type* usart_x,usart_hardware_flow_con
   *         - USART_RXON_FLAG:   transmit turned on flag  (not available for USART4,USART5,USART6,USART7 and USART8)
   *         - USART_TXON_FLAG:   receive turned on flag  (not available for USART4,USART5,USART6,USART7 and USART8)
   *         - USART_LPWUF_FLAG:  low power wake up flag  (not available for USART4,USART5,USART6,USART7 and USART8)
-  *         - USART_CMDF_FLAG:   character match detection flag  (not available for USART4,USART5,USART6,USART7 and USART8)
+  *         - USART_CMDF_FLAG:   character match detection flag 
   *         - USART_OCCUPY_FLAG: receiver occupy flag (not available for USART4,USART5,USART6,USART7 and USART8)
   *         - USART_RTODF_FLAG:  receiver time out detection flag
-  *         - USART_CTSCF_FLAG: cts change flag (not available for USART4,USART5,USART6,USART7 and USART8)
-  *         - USART_BFF_FLAG:   break frame flag
-  *         - USART_TDBE_FLAG:  transmit data buffer empty flag
-  *         - USART_TDC_FLAG:   transmit data complete flag
-  *         - USART_RDBF_FLAG:  receive data buffer full flag
-  *         - USART_IDLEF_FLAG: idle flag
-  *         - USART_ROERR_FLAG: receiver overflow error flag
-  *         - USART_NERR_FLAG:  noise error flag
-  *         - USART_FERR_FLAG:  framing error flag
-  *         - USART_PERR_FLAG:  parity error flag
+  *         - USART_CTSCF_FLAG:  cts change flag (not available for USART5,USART6,USART7 and USART8)
+  *         - USART_BFF_FLAG:    break frame flag
+  *         - USART_TDBE_FLAG:   transmit data buffer empty flag
+  *         - USART_TDC_FLAG:    transmit data complete flag
+  *         - USART_RDBF_FLAG:   receive data buffer full flag
+  *         - USART_IDLEF_FLAG:  idle flag
+  *         - USART_ROERR_FLAG:  receiver overflow error flag
+  *         - USART_NERR_FLAG:   noise error flag
+  *         - USART_FERR_FLAG:   framing error flag
+  *         - USART_PERR_FLAG:   parity error flag
   * @retval the new state of usart_flag (SET or RESET).
   */
 flag_status usart_flag_get(usart_type* usart_x, uint32_t flag)
@@ -780,9 +781,9 @@ flag_status usart_interrupt_flag_get(usart_type* usart_x, uint32_t flag)
   * @param  flag: specifies the flag to clear.
   *         this parameter can be any combination of the following values:
   *         - USART_LPWUF_FLAG:  low power wake up flag  (not available for USART4,USART5,USART6,USART7 and USART8)
-  *         - USART_CMDF_FLAG:   character match detection flag  (not available for USART4,USART5,USART6,USART7 and USART8)
+  *         - USART_CMDF_FLAG:   character match detection flag  
   *         - USART_RTODF_FLAG:  receiver time out detection flag
-  *         - USART_CTSCF_FLAG: (not available for USART4,USART5,USART6,USART7 and USART8).
+  *         - USART_CTSCF_FLAG: (not available for USART5,USART6,USART7 and USART8).
   *         - USART_BFF_FLAG:
   *         - USART_TDC_FLAG:
   *         - USART_RDBF_FLAG:
@@ -830,7 +831,7 @@ void usart_flag_clear(usart_type* usart_x, uint32_t flag)
   * @brief  configure the usart's rs485 transmit delay time.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7 or USART8.
+  *         USART1, USART2, USART3, USART4, USART5, USART7 or USART8.
   * @param  start_delay_time: transmit start delay time.
   * @param  complete_delay_time: transmit complete delay time.
   * @retval none
@@ -873,7 +874,7 @@ void usart_id_bit_num_set(usart_type* usart_x, usart_identification_bit_num_type
   * @brief  set the usart's de polarity.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7,or USART8.
+  *         USART1, USART2, USART3, USART4, USART5, USART7,or USART8.
   * @param  de_polarity: the usart de polarity selection.
   *         this parameter can be: USART_DE_POLARITY_HIGH or USART_DE_POLARITY_LOW.
   * @retval none
@@ -887,7 +888,7 @@ void usart_de_polarity_set(usart_type* usart_x, usart_de_polarity_type de_polari
   * @brief  enable or disable the usart's rs485 mode.
   * @param  usart_x: select the usart or the uart peripheral.
   *         this parameter can be one of the following values:
-  *         USART1, USART2, USART3, USART4, USART5, USART6, USART7,or USART8.
+  *         USART1, USART2, USART3, USART4, USART5, USART7 or USART8.
   * @param  new_state: new state of the irda mode.
   *         this parameter can be: TRUE or FALSE.
   * @retval none

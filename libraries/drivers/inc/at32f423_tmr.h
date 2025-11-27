@@ -3,7 +3,8 @@
   * @file     at32f423_tmr.h
   * @brief    at32f423 tmr header file
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -803,7 +804,7 @@ typedef struct
       __IO uint32_t brkv                 : 1; /* [13] */
       __IO uint32_t aoen                 : 1; /* [14] */
       __IO uint32_t oen                  : 1; /* [15] */
-      __IO uint32_t bkf                  : 4; /* [19:16] */
+      __IO uint32_t brkf                 : 4; /* [19:16] */
       __IO uint32_t reserved1            : 12;/* [31:20] */
     } brk_bit;
   };

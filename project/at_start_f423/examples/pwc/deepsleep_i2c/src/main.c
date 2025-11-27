@@ -3,7 +3,8 @@
   * @file     main.c
   * @brief    main program
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -222,17 +223,6 @@ int main(void)
     {
       error_handler(i2c_status);
     }
-
-    /* select system clock source as hick before ldo set */
-    crm_sysclk_switch(CRM_SCLK_HICK);
-
-    /* wait till hick is used as system clock source */
-    while(crm_sysclk_switch_status_get() != CRM_SCLK_HICK)
-    {
-    }
-    
-    /* reduce ldo before enter deepsleep mode */
-    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V1);
 	
 	/* congfig the voltage regulator mode.only used with deep sleep mode */
     pwc_voltage_regulate_set(PWC_REGULATOR_EXTRA_LOW_POWER);
@@ -256,9 +246,6 @@ int main(void)
         delay_us(((120 * HICK_VALUE) /crm_clocks_freq_struct.sclk_freq) + 1);
       }
     }
-
-    /* resume ldo before system clock source enhance */
-    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);
 
     /* wake up from deep sleep mode, congfig the system clock */
     system_clock_recover();
@@ -273,17 +260,6 @@ int main(void)
     {
       error_handler(i2c_status);
     }
-
-    /* select system clock source as hick before ldo set */
-    crm_sysclk_switch(CRM_SCLK_HICK);
-
-    /* wait till hick is used as system clock source */
-    while(crm_sysclk_switch_status_get() != CRM_SCLK_HICK)
-    {
-    }
-    
-    /* reduce ldo before enter deepsleep mode */
-    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V1);
 	
 	/* congfig the voltage regulator mode.only used with deep sleep mode */
     pwc_voltage_regulate_set(PWC_REGULATOR_EXTRA_LOW_POWER);
@@ -307,9 +283,6 @@ int main(void)
         delay_us(((120 * HICK_VALUE) /crm_clocks_freq_struct.sclk_freq) + 1);
       }
     }
-
-    /* resume ldo before system clock source enhance */
-    pwc_ldo_output_voltage_set(PWC_LDO_OUTPUT_1V3);
 
     /* wake up from deep sleep mode, congfig the system clock */
     system_clock_recover();

@@ -3,7 +3,8 @@
   * @file     at32f423.h
   * @brief    at32f423 header file
   **************************************************************************
-  *                       Copyright notice & Disclaimer
+  *
+  * Copyright (c) 2025, Artery Technology, All rights reserved.
   *
   * The software Board Support Package (BSP) that is made available to
   * download from Artery official website is the copyrighted work of Artery.
@@ -149,7 +150,7 @@ extern "C" {
   */
 #define __AT32F423_LIBRARY_VERSION_MAJOR    (0x02) /*!< [31:24] major version */
 #define __AT32F423_LIBRARY_VERSION_MIDDLE   (0x00) /*!< [23:16] middle version */
-#define __AT32F423_LIBRARY_VERSION_MINOR    (0x08) /*!< [15:8]  minor version */
+#define __AT32F423_LIBRARY_VERSION_MINOR    (0x09) /*!< [15:8]  minor version */
 #define __AT32F423_LIBRARY_VERSION_RC       (0x00) /*!< [7:0]  release candidate */
 #define __AT32F423_LIBRARY_VERSION          ((__AT32F423_LIBRARY_VERSION_MAJOR << 24)  | \
                                              (__AT32F423_LIBRARY_VERSION_MIDDLE << 16) | \
@@ -347,18 +348,12 @@ typedef enum {ERROR = 0, SUCCESS = !ERROR} error_status;
   * @{
   */
 
-#define XMC_SDRAM_MEM_BASE               ((uint32_t)0xC0000000)
-#define QSPI2_MEM_BASE                   ((uint32_t)0xB0000000)
 #define XMC_CARD_MEM_BASE                ((uint32_t)0xA8000000)
-#define QSPI2_REG_BASE                   ((uint32_t)0xA0002000)
-#define QSPI1_REG_BASE                   ((uint32_t)0xA0001000)
 #define XMC_REG_BASE                     ((uint32_t)0xA0000000)
 #define XMC_BANK1_REG_BASE               (XMC_REG_BASE + 0x0000)
 #define XMC_BANK2_REG_BASE               (XMC_REG_BASE + 0x0060)
 #define XMC_BANK3_REG_BASE               (XMC_REG_BASE + 0x0080)
 #define XMC_BANK4_REG_BASE               (XMC_REG_BASE + 0x00A0)
-#define XMC_SDRAM_REG_BASE               (XMC_REG_BASE + 0x0140)
-#define QSPI1_MEM_BASE                   ((uint32_t)0x90000000)
 #define XMC_MEM_BASE                     ((uint32_t)0x60000000)
 #define PERIPH_BASE                      ((uint32_t)0x40000000)
 #define SRAM_BB_BASE                     ((uint32_t)0x22000000)
