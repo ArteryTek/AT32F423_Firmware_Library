@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>-AT32F423VCT7</Device>
           <Vendor>ArteryTek</Vendor>
-          <PackID>ArteryTek.AT32F423_DFP.2.0.0</PackID>
+          <PackID>ArteryTek.AT32F423_DFP.2.1.2</PackID>
           <Cpu>IRAM(0x20000000,0xC000) IROM(0x08000000,0x40000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
